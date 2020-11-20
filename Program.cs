@@ -24,19 +24,27 @@ namespace heist
             }
 
             Console.WriteLine("Your Team is Assembled!");
+
             Console.WriteLine("");
+            Console.WriteLine("How many test runs should we do?");
+            int runs = Int32.Parse(Console.ReadLine());
             // Console.WriteLine("Enter the Bank's Difficulty Level");
-            int LuckFactor = new Random().Next(-10, 11);
-            int bDiff = 100 + LuckFactor;
-            Console.WriteLine($"your teams skill is {HesitOneTeam.TeamSkill()}");
-            Console.WriteLine($"The Bank's difficulty rating is {bDiff}");
-            if (HesitOneTeam.TeamSkill() >= bDiff)
+            while (runs > 0)
             {
-                Console.WriteLine("You did it!");
-            }
-            else
-            {
-                Console.WriteLine("busted...");
+
+                int LuckFactor = new Random().Next(-10, 11);
+                int bDiff = 100 + LuckFactor;
+                Console.WriteLine($"your teams skill is {HesitOneTeam.TeamSkill()}");
+                Console.WriteLine($"The Bank's difficulty rating is {bDiff}");
+                if (HesitOneTeam.TeamSkill() >= bDiff)
+                {
+                    Console.WriteLine("You did it!");
+                }
+                else
+                {
+                    Console.WriteLine("busted...");
+                }
+                runs--;
             }
         }
 
