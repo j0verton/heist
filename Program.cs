@@ -8,6 +8,10 @@ namespace heist
         {
             Team HesitOneTeam = new Team();
             Console.WriteLine("Plan your Heist!");
+            Console.WriteLine("How difficult is the Job?");
+            int bDiff = Int32.Parse(Console.ReadLine());
+            int successes = 0;
+            int failures = 0;
             while (true)
             {
                 Console.WriteLine("Enter your new Team member's name");
@@ -31,21 +35,26 @@ namespace heist
             // Console.WriteLine("Enter the Bank's Difficulty Level");
             while (runs > 0)
             {
-
                 int LuckFactor = new Random().Next(-10, 11);
-                int bDiff = 100 + LuckFactor;
+                int roundDiff = bDiff + LuckFactor;
                 Console.WriteLine($"your teams skill is {HesitOneTeam.TeamSkill()}");
-                Console.WriteLine($"The Bank's difficulty rating is {bDiff}");
-                if (HesitOneTeam.TeamSkill() >= bDiff)
+                Console.WriteLine($"The Bank's difficulty rating is {roundDiff}");
+                if (HesitOneTeam.TeamSkill() >= roundDiff)
                 {
                     Console.WriteLine("You did it!");
+                    successes++;
                 }
                 else
                 {
                     Console.WriteLine("busted...");
+                    failures++;
                 }
                 runs--;
             }
+
+            Console.WriteLine($"You succeeded {successes} times");
+            Console.WriteLine($"You failed {failures} times");
+
         }
 
 
