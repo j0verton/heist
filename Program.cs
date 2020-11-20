@@ -6,31 +6,28 @@ namespace heist
     {
         static void Main(string[] args)
         {
+            Team HesitOneTeam = new Team();
             Console.WriteLine("Plan your Heist!");
-
-            Console.WriteLine("Enter a Team member's name");
-            Member NumberOne = new Member(Console.ReadLine());
-            Console.WriteLine($"enter {NumberOne.Name}'s skill level");
-            NumberOne.SkillLevel = Int32.Parse(Console.ReadLine());
-            Console.WriteLine($"enter {NumberOne.Name}'s courage factor");
-            NumberOne.CourageFactor = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Your Team");
-            Console.WriteLine("----------");
-            Console.WriteLine(NumberOne.Name);
-            Console.WriteLine($"Skill Level: {NumberOne.SkillLevel}");
-            Console.WriteLine($"Courage Factor: {NumberOne.CourageFactor}");
-        }
-
-        class Member
-        {
-            public string Name { get; set; }
-            public int SkillLevel { get; set; }
-            public double CourageFactor { get; set; }
-            public Member(string name)
+            while (true)
             {
-                Name = name;
+                Console.WriteLine("Enter your new Team member's name");
+                Member recruit = new Member(Console.ReadLine());
+                if (recruit.Name == "")
+                {
+                    break;
+                }
+                Console.WriteLine($"enter {recruit.Name}'s skill level");
+                recruit.SkillLevel = Int32.Parse(Console.ReadLine());
+                Console.WriteLine($"enter {recruit.Name}'s courage factor");
+                recruit.CourageFactor = double.Parse(Console.ReadLine());
+                HesitOneTeam.Recruit(recruit);
             }
+
+            Console.Write(HesitOneTeam.TeamInfo());
+
+
         }
+
+
     }
 }
