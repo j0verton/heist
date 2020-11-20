@@ -23,8 +23,21 @@ namespace heist
                 HesitOneTeam.Recruit(recruit);
             }
 
-            Console.Write(HesitOneTeam.TeamInfo());
+            Console.WriteLine("Your Team is Assembled!");
+            Console.WriteLine("");
+            // Console.WriteLine("Enter the Bank's Difficulty Level");
 
+            int bDiff = 100;
+            if (HesitOneTeam.TeamSkill() >= bDiff)
+            {
+                Console.WriteLine("You did it!");
+
+            }
+            else
+            {
+                Console.WriteLine("busted...");
+
+            }
 
         }
 

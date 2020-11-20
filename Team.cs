@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace heist
 {
@@ -22,6 +23,10 @@ namespace heist
 
             }
             return teamString;
+        }
+        public int TeamSkill()
+        {
+            return Members.Sum(m => m.SkillLevel);
         }
     }
 }
